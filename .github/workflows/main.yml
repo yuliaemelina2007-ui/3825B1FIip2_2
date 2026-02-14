@@ -1,8 +1,6 @@
 name: pull_request_check
 
 on:
-  push:
-    branches: [ "main" ]
   pull_request:
     branches: [ "*" ]
     types: [opened, edited]
