@@ -32,8 +32,3 @@ labels:
     sync: true
     matcher:
       title: '.* .*..*..* Лабораторная №6'
-      
-  - label: 'lab7'
-    sync: true
-    matcher:
-      title: '.* .*..*..* Лабораторная №7'
