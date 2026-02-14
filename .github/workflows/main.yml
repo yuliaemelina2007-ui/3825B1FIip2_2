@@ -1,0 +1,41 @@
+name: pull_request_check
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "*" ]
+    types: [opened, edited]
+  pull_request_target:
+    branches: [ "*" ]
+    types: [opened, edited]
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+  statuses: write
+  checks: write
+
+jobs:
+  labeler:
+    name: labeler
+    runs-on: ubuntu-latest
+    steps:
+      - name: labeler
+        uses: fuxingloh/multi-labeler@v4
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+
+      - name: changed_files
+        id: changed-files
+        uses: tj-actions/changed-files@v35
+        with:
+          files: |
+            **/*.cpp
+            **/*.h
+            **/*.hpp
+            **/*.c
+            **/*.cc
+            **/*.cxx
+          separator: ","
