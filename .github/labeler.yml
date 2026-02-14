@@ -13,27 +13,27 @@ labels:
     matcher:
       title: '*Лабораторная №1'
       
-    - label: 'lab2'
+  - label: 'lab2'
     sync: true
     matcher:
       title: '*Лабораторная №2'
       
-    - label: 'lab3'
+  - label: 'lab3'
     sync: true
     matcher:
       title: '*Лабораторная №3'
       
-    - label: 'lab4'
-    sync: true
-    matcher:
-      title: '*Лабораторная №4'
-      
-    - label: 'lab5'
+  - label: 'lab4'
     sync: true
     matcher:
       title: '*Лабораторная №5'
       
-    - label: 'lab6'
+  - label: 'lab6'
     sync: true
     matcher:
       title: '*Лабораторная №6'
+      
+  - label: 'lab7'
+    sync: true
+    matcher:
+      title: '*Лабораторная №7'
