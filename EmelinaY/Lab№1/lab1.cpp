@@ -2,57 +2,56 @@
 #include <iostream>
 #include <iomanip>
 
-using namespace std;
-
-bool prov_action(int a) {
-    if (a >= 0 && a <= 3) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
+using std::cout;
+using std::cin;
+using std::fixed;
+using std::setprecision;
 
 class WeightConverter {
 private:
-    double kilograms;  
+    double kilograms;
 
 public:
-    WeightConverter() {
-        kilograms = 0.0;
-    }
+    WeightConverter() : kilograms(0.0) {}
 
     WeightConverter(double kg) {
-        kilograms = kg;
-    }
-    void setKilograms(double kg) {
-        kilograms = kg;
+        setKilograms(kg); 
     }
 
-    double getKilograms() {
+    void setKilograms(double kg) {
+        if (kg >= 0) {
+            kilograms = kg;
+        }
+        else {
+            kilograms = 0.0;
+            cout << "Warning: Weight cannot be negative. Set to 0 kg.\n";
+        }
+    }
+
+    double getKilograms() const { 
         return kilograms;
     }
 
-    double getPharmacyPounds() {
+    double getPharmacyPounds() const { 
         return kilograms * 2.679;
     }
 
-    double getPoods() {
+    double getPoods() const { 
         return kilograms / 16.38;
     }
 
-    void print() {
+    void print() const { 
         cout << fixed << setprecision(3);
-        cout << "Weight: " << kilograms << " kg" << '\n';
-        cout << "In pharmacy pounds: " << getPharmacyPounds() << " lb" << '\n';
-        cout << "In poods: " << getPoods() << " pood" << '\n';
+        cout << "Weight: " << kilograms << " kg\n";
+        cout << "In pharmacy pounds: " << getPharmacyPounds() << " lb\n";
+        cout << "In poods: " << getPoods() << " pood\n";
     }
 };
 
 int main() {
     int a;
     double kg;
-    WeightConverter weight; 
+    WeightConverter weight;
 
     cout << "=== WEIGHT CONVERTER ===\n";
     cout << "(Pharmacy pounds and poods)\n\n";
